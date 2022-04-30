@@ -4,6 +4,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { connect } = require("./db");
 const userRouter = require("./routes/users.routes");
+const favsRouter = require("./routes/favs.routes");
 
 const port = process.env.PORT || 8000;
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", userRouter);
+app.use("/api", favsRouter);
 
 app.listen(port, () => {
   console.log(`App running at http://localhost:${port}`);

@@ -34,6 +34,14 @@ const userSchema = new Schema(
       minlength: 6,
       match: passwordRegexp,
     },
+    favs: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Favs",
+        },
+      ],
+    },
   },
   {
     timestamps: true,
